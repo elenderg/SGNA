@@ -45,6 +45,8 @@ Para acesso ao form basta clicar no botão + ou digitar qualquer coisa
    e o destino será obtido a partir das informações constantes no campo
    Rota, que deverá conter as coordenadas de destino no formato
    012345.67S/0123456.78W ou 012345S/0123456W
+Obs: analisa-se a possibilidade de inserir mais um campo no formulário, onde conste o nome do município, Unidade da Federação (UF) e o nome da localidade de partida, para facilitar o desenvolvimento
+   
 
 **Rota:**
 A Rota é composta de vários elementos, tais como:
