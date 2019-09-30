@@ -52,4 +52,26 @@ A Rota é composta de vários elementos, tais como:
 
 **FIXO** - FIXOS são códigos compostos de 5 caracteres aleatórios (Ex: KOGSA, ROTAM, PACAI)
 
-**N0###/F###** - ponto de mudança de rota
+**N0###/F###** - parte de um ponto de mudança de rota. Ex: N0150F160
+Exemplo de plano com essa informação: DCT UTBOL/N0150F160 IFR DCT
+O plano diz que no fixo UTBOL a velocidade e nível da aeronave será alterado e a partir deste ponto o vôo será conduzido com base nas regras de vôo por instrumentos de auxílio à navegação aérea. No momento esta informação será desconsiderada por completo na avaliação das rotas pelo sitema, já que ainda não foi implementada diferenciação de níveis ou altitude. O mesmo vale para as informações de **Nível** abaixo.
+
+**Nível:** Pode ser expresso de diferentes formas. Todas as formas abaixo são válidas:
+ - F160 (16 MIL PÉS CNTP - **Condições Normais de Temperatura e
+   Pressão** (**CNTP**))
+ - F135 (13 MIL E 500 PÉS CNTP)
+ - F010 (MIL PÉS CNTP )
+ - F005 (500 PÉS CNTP)
+ - A005 (500 PÉS DE ALTITUDE EM RELAÇÃO AO SOLO)
+ - VFR (VÔO SOB REGRAS DE VÔO VFR, GERALMENTE CONDUZIDO ABAIXO DA   **MSA** - Altitude mínima de setor - 1000 PÉS ACIMA DE TODOS OS OBSTÁCULOS TERRESTRES)
+ 
+ **Velocidade** de Cruzeiro (máximo 5 caracteres)
+
+Contém a velocidade verdadeira de cruzeiro para a primeira parte ou a totalidade do voo em função de:
+a) quilômetros por hora: a letra K, seguida de 4 algarismos;
+Exemplo 1: K 0 6 5 0
+b) nós: a letra N, seguida de 4 algarismos. Ex: N 0  4  8  0; ou
+c) número Mach: a letra M, seguida de 3 algarismos, arredondado aos
+centésimos mais próximos.
+Exemplo 3: (para o Mach 0.82)
+ M 0 8 2 
