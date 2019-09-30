@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SGTA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/GerenciaVoo.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/GerenciaAeronaves.js"></script>
+    <script src="mapas/core.js"></script>
+    <script src="mapas/maps.js"></script>
+    <script src="mapas/brazilLow.js"></script>
+    <script src="mapas/worldLow.js"></script>
+    <script src="mapas/animated.js"></script>
+</head>
+
+<body id="body">
+    <h1 class="commargem" style="background-color:black;text-align:center;text-transform:uppercase;font-weight:700;">
+        SGTA - Sistema de Gerenciamento de Tráfego Aéreo</h1>
+    <p class="commargem" style="background-color:black;text-align:center;text-transform:uppercase;font-weight:700;">
+        Para adicionar ou remover aeronaves, clique nos botões
+        <span>+</span> e <span>-</span> abaixo, ou digite uma letra. Use <img
+            src="icones/1024px-Google_Chrome_icon_(September_2014).svg.png" alt="" style="width: 15px;height: 15px;">
+    </p>
+    <button type="button" class="button commargem" onclick="MostraForm()">+</button>
+    <button type="button" class="button commargem" onclick="RemoverAeronave()">—</button>
+    <div id="mydiv" style="z-index: 2;">
+
+        <form id="form" class="commargem">
+
+            <div id="mydivheader" class="textbox">
+                <p class="alignleft">Inclusão Avulsa</p>
+                <button type="button" class="alignright" onclick="EscondeForm()">×</button>
+            </div>
+            <p class="pequeno" style="margin-left: 5px;">Posição Operacional <br>
+                <select name="" id="traves" value="">
+                    <option value="CLR">CLR</option>
+                    <option value="TWR">TWR</option>
+                    <option value="TMA">TMA</option>
+                </select>
+            </p>
+            <p class="pequeno">ARR/DEP<br>
+                <select name="" id="movimento" value="">
+                    <option value="CLR">ARR</option>
+                    <option value="TWR">DEP</option>
+                    <option value="TMA">QAY</option>
+                    <option value="TMA">QAF</option>
+                </select>
+            </p>
+            <p class="pequeno" style="margin-left:10px;">VFR/IFR<br>
+                <select name="" id="procedimento" value="">
+                    <option value="CLR">VFR</option>
+                    <option value="TWR">IFR</option>
+                </select>
+            </p>
+            <p class="pequeno" style=" float:right; margin-right:5px; margin-bottom:3px;">
+                <button class="semborda" type="button" style="background-color: silver;" id="botaogravar"
+                    onclick="AdicionarAeronave()">
+                    <b style="color:green;">✔ </b>&nbsp;<u>G</u>ravar&nbsp;&nbsp;&nbsp;</button>
+                <br>
+                <button class="semborda" type="button" style="background-color: silver;" id="botaocancelar"
+                    onclick="EscondeForm()">
+                    <b style="color:blue;">↶ </b>&nbsp;<u>C</u>ancelar</button>
+            </p>
+            <br>
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo <br>
+                <input type="text" name="" id="matricula" maxlength="7" class="" style="width: 50px;"
+                    placeholder="PTNAV">
+            </p>
+
+            <p class="pequeno">Hora <br>
+                <input type="text" name="" id="hora" maxlength="4" class="" style="width: 50px;" placeholder="1234">
+            </p>
+            <p class="pequeno">Nível<br>
+                <input type="text" name="" id="nivel" maxlength="4" class="" style="width: 50px;" placeholder="F999">
+            </p>
+            <p class="pequeno">Transponder<br>
+                <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;"
+                    placeholder="2000">
+            </p>
+
+            <br>
+            <p class="pequeno" style="margin-left: 5px;">Origem<br>
+                <input type="text" name="origem" id="origem" maxlength="4" class="" style="width: 50px;"
+                    placeholder="SBHT">
+            </p>
+            <p class="pequeno">Destino<br>
+                <input type="text" name="" id="destino" maxlength="4" class="" style="width: 50px;" placeholder="SBHT">
+            </p>
+            <p class="pequeno">Distância<br>
+                <input type="text" name="" id="distancia" maxlength="4" class="" style="width: 50px;"
+                    placeholder="75NM">
+            </p>
+            <p class="pequeno">Radial<br>
+                <input type="text" name="" id="distancia" maxlength="4" class="" style="width: 50px;"
+                    placeholder="R082">
+            </p>
+            <br>
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Rota<br>
+                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width: 167px;">
+            </p>
+            <p class="pequeno">Tipo<br>
+                <select name="" id="tipo" value="">
+                    <option value="Avião">Avião</option>
+                    <option value="Helicóptero">Helicóptero</option>
+                </select>
+            </p>
+            <p class="pequeno">Cat<br>
+                <select name="" id="esteira" value="">
+                    <option value="Leve">L</option>
+                    <option value="Média">M</option>
+                    <option value="Outro esteira de turbulência">H</option>
+                </select>
+            </p>
+            <p id="final" style="color:silver;font-size:0.1em;">.</p>
+
+        </form>
+    </div>
+
+    <div class="painellateral" id="paineldestrips" style="z-index: -1;">
+        <div id="chartdiv"></div>
+    </div>
+    <script src="js/moveform.js"></script>
+    <script src="mapas/script.js"></script>
+</body>
+
+</html>
