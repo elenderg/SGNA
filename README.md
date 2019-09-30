@@ -12,5 +12,5 @@ Futuramente pretende-se exibir as diferentes posições do circuito de tráfego 
 ## O form
 O processo de inserção de aeronaves no sistema começa pelo form contido na página inicial (index.html)
 
-![Para acesso ao form basta clicar no botão + ou digitar qualquer coisa](https://i.ibb.co/74mhvvG/form.png)
-a
+![Imagem do form](https://i.ibb.co/74mhvvG/form.png)
+Para acesso ao form basta clicar no botão + ou digitar qualquer coisa
