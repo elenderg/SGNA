@@ -33,3 +33,7 @@ Para acesso ao form basta clicar no botão + ou digitar qualquer coisa
  - Caso não o destino e a origem não sejam SBHT, é o estimado para o través de SBHT,
 
 **Origem/Destino:** É composto de 4 caracteres, a relação completa de aeródromos públicos e privados está disponível no arquivo [aerodromos.csv](https://github.com/elenderg/SGTA/blob/master/aerodromos.csv).
+
+**Distância/Radial:** 
+Caso o usuário informe na Origem ou Destino o código ZZZZ (aeródromo desconhecido. Ex: Helicóptero pousando num estádio de futebol) então o sistema irá pegar os dados da distância e radial informados para plotar a rota da aeronave no mapa.
+Caso tanto a origem quanto o destino sejam ZZZZ a informação de distância e radial será considerada como a posição atual da aeronave e o destino será obtido a partir das informações constantes no campo Rota, que deverá conter as coordenadas de destino no formato 012345.67S/0123456.78W ou 012345S/0123456W
