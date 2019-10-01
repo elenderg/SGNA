@@ -21,13 +21,17 @@ var mseg    = data.getMilliseconds();   // 0-999*/
 // cria uma variável chamada json
 function AdicionaCidade(Origem,Destino){ 
    var x = Destino.length;
-   var z = Origem.length;
+   var z = Origem.length;   
    if (Origem == "ZZZZ" || Destino == "ZZZZ"){
-         var distancia = document.getElementbyId('distancia').toUpperCase();
-         var radial = document.getElementById('radial').toUpperCase();
-         var rota = document.getElementById('rota').toUpperCase();
+         var distancia = document.getElementbyId('distancia').value.toUpperCase();
+         var radial = document.getElementById('radial').value.toUpperCase();
+         var rota = document.getElementById('rota').value.toUpperCase();
+        
          console.log("Erro. Aeródromo ZZZZ não possui informações de latitude e longitude. Será feita uma estimativa")
          console.log(distancia + " " + radial + " " + rota);
+         if(Origem == "ZZZZ" && Destino == "ZZZZ" ){
+            
+         }
    }
    else if(x == 4  && z == 4 && json){ // x e z recebem a quantidade de caracteres digitados
          // caso a quantidade de caracteres dos aeródromos seja 4, e a variável json não esteja vazia, inicia a busca do aeródromo
@@ -132,7 +136,10 @@ function FunçãoBusca(codigo){
             //addLine(addCity({latitude: resultado[0]['latitude'], longitude: resultado[0]['longitude']}, codaerodromo1),addCity(coordenadas2, codaerodromo2));
             //console.log(addLine(ad1,ad2));
             i = 0;  // zera o contador
-            
+            Horatexto = Hora;   // passa a hora para a variável Horatexto
+            console.log(Horatexto);
+           
+            Velocidade();
          }
          
       }   
@@ -162,10 +169,7 @@ function FunçãoBusca(codigo){
    }
 
    else{console.log("Aeródromo Inexistente: " + codigo); } }
-   Horatexto = Hora;   // passa a hora para a variável Horatexto
-   console.log(Horatexto);
-  
-   Velocidade();
+
    
 }
 
