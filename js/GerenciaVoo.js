@@ -125,7 +125,7 @@ function FunçãoBusca(codigo){
          //console.log(addCity(coordenadas2, codaerodromo2));
          if (i == 1) {
             addLine(ad1,ad2)
-            console.log("Rota adicionada entre " +ad1 +"-"+ad2);
+            console.log("Rota adicionada entre " +codaerodromo1 +"-"+codaerodromo2);
             //console.log(coordenadas1);
             //console.log(codaerodromo1);
             //addLine(addCity(coordenadas1, codaerodromo1),addCity(coordenadas2, codaerodromo2));
