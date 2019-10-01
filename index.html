@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@
     <script src="mapas/worldLow.js"></script>
     <script src="mapas/animated.js"></script>
 </head>
-
 <body id="body">
     <h1 class="commargem" style="background-color:black;text-align:center;text-transform:uppercase;font-weight:700;">
         SGTA - Sistema de Gerenciamento de Tráfego Aéreo</h1>
@@ -80,14 +78,17 @@
                     <option value="A">A</option>
                     <option value="VFR"></option>
                 </select>
-                <input type="text" name="" id="nivel" maxlength="4" class="" style="width: 30px;" placeholder="VFR">
+                <input type="text" name="" id="nivel" maxlength="3" class="" style="width: 30px;" placeholder="VFR">
             </p>
-            <p class="pequeno">Transponder<br>
-                <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;"
-                    placeholder="2000">
-            </p>
-
-            <br>
+            <p class="pequeno">Velocidade<br>
+                <select name="" id="tipodevelocidade">
+                    <option value="F">N</option>
+                    <option value="A">K</option>
+                    <option value="M">M</option>
+                </select>
+                <input type="text" name="" id="velocidade" maxlength="4" class="" style="width: 30px;" placeholder="0160">
+            </p>     
+            <br>            
             <p class="pequeno" style="margin-left: 5px;">Origem<br>
                 <input type="text" name="origem" id="origem" maxlength="4" class="" style="width: 50px;"
                     placeholder="SBHT">
@@ -111,7 +112,7 @@
             </p>
             <br>
             <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Rota<br>
-                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width: 167px;" value="DCT">
+                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width:180px;" value="DCT">
             </p>
             <p class="pequeno">Tipo<br>
                 <select name="" id="tipo" value="">
@@ -127,10 +128,13 @@
                 </select>
             </p>
             <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo de Chamada<br>
-                <input type="text" name="" id="indicativo" width="80px;" maxlength="10">
+                <input type="text" name="" id="indicativo" style="width:110px;" maxlength="10" placeholder="GUARDIÃO02">
             </p>
             <p class="pequeno">Coordenadas (ZZZZ apenas)<br>
-                <input type="text" name="" id="coordenadas" style="width:130px;" maxlength="15" placeholder="012345S/0123456W">
+                <input type="text" name="" id="coordenadas" style="width:140px;" maxlength="15" placeholder="012345S/0123456W">
+            </p>
+            <p class="pequeno">Transponder<br>
+                <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;"  placeholder="2000">
             </p>
             <p id="final" style="color:silver;font-size:0.1em;">.</p>
         </form>
