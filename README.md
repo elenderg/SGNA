@@ -70,9 +70,10 @@ O plano diz que no fixo UTBOL a velocidade e nível da aeronave será alterado e
  **Velocidade** de Cruzeiro (máximo 5 caracteres)
 
 Contém a velocidade verdadeira de cruzeiro para a primeira parte ou a totalidade do voo em função de:
+
 a) quilômetros por hora: a letra K, seguida de 4 algarismos;
 
-Exemplo 1: **K0650**
+Ex: **K0650**
 
 b) nós: a letra N, seguida de 4 algarismos. 
 
