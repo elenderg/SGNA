@@ -31,6 +31,7 @@ function AdicionarAeronave(){
     Transponder = document.getElementById('transponder').value.toUpperCase();
     Procedimento = document.getElementById('procedimento').value;
     Rota = document.getElementById('rota').value.toUpperCase();
+    Coordenadas = document.getElementById('coordenadas').value.toUpperCase();
     console.log("Matrícula: " +Matricula +"; Origem: " +Origem +"; Destino: " +Destino);
     console.log("Hora: " +Hora +"; Nivel: " +Nivel +"; Tipo: " +Tipo + "; Distância: " + Distancia);
     console.log("Esteira: " +Esteira +"; Transponder: " + Transponder + "; Procedimento: " + Procedimento + "; Rota: " + Rota);    
