@@ -26,11 +26,11 @@ function AdicionaCidade(Origem,Destino){
          var distancia = document.getElementbyId('distancia').value.toUpperCase();
          var radial = document.getElementById('radial').value.toUpperCase();
          var rota = document.getElementById('rota').value.toUpperCase();
-        
+         var Coordenadas = document.getElementById('coordenadas').value.toUpperCase();
          console.log("Erro. Aeródromo ZZZZ não possui informações de latitude e longitude. Será feita uma estimativa")
          console.log(distancia + " " + radial + " " + rota);
-         if(Origem == "ZZZZ" && Destino == "ZZZZ" ){
-            
+         if(Origem == "ZZZZ" || Destino == "ZZZZ" && Coodenadas == ""){
+            alert("Por favor, insira as coordenadas do ZZZZ")
          }
    }
    else if(x == 4  && z == 4 && json){ // x e z recebem a quantidade de caracteres digitados
