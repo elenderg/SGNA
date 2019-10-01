@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="PT-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -42,18 +42,18 @@
                     <option value="TMA">TMA</option>
                 </select>
             </p>
-            <p class="pequeno">ARR/DEP<br>
+            <p class="pequeno">Movimento<br>
                 <select name="" id="movimento" value="">
-                    <option value="CLR">ARR</option>
-                    <option value="TWR">DEP</option>
-                    <option value="TMA">QAY</option>
-                    <option value="TMA">QAF</option>
+                    <option value="ARR">ARR</option>
+                    <option value="DEP">DEP</option>
+                    <option value="QAY">QAY</option>
+                    <option value="QAF">QAF</option>
                 </select>
             </p>
             <p class="pequeno" style="margin-left:10px;">VFR/IFR<br>
                 <select name="" id="procedimento" value="">
-                    <option value="CLR">VFR</option>
-                    <option value="TWR">IFR</option>
+                    <option value="VFR">VFR</option>
+                    <option value="IFR">IFR</option>
                 </select>
             </p>
             <p class="pequeno" style=" float:right; margin-right:5px; margin-bottom:3px;">
@@ -75,7 +75,12 @@
                 <input type="text" name="" id="hora" maxlength="4" class="" style="width: 50px;" placeholder="1234">
             </p>
             <p class="pequeno">Nível<br>
-                <input type="text" name="" id="nivel" maxlength="4" class="" style="width: 50px;" placeholder="F999">
+                <select name="" id="tipodenivel">
+                    <option value="F">F</option>
+                    <option value="A">A</option>
+                    <option value="VFR"></option>
+                </select>
+                <input type="text" name="" id="nivel" maxlength="4" class="" style="width: 30px;" placeholder="VFR">
             </p>
             <p class="pequeno">Transponder<br>
                 <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;"
@@ -91,16 +96,22 @@
                 <input type="text" name="" id="destino" maxlength="4" class="" style="width: 50px;" placeholder="SBHT">
             </p>
             <p class="pequeno">Distância<br>
-                <input type="text" name="" id="distancia" maxlength="4" class="" style="width: 50px;"
-                    placeholder="75NM">
+                <input type="text" name="" id="distancia" maxlength="3" class="" style="width: 30px;" placeholder="75">
+                <select name="" id="tipodedistancia">
+                        <option value="NM">NM</option>
+                        <option value="KM">KM</option>
+                </select>
             </p>
-            <p class="pequeno">Radial<br>
-                <input type="text" name="" id="distancia" maxlength="4" class="" style="width: 50px;"
-                    placeholder="R082">
+            <p class="pequeno">Radial/Magnética<br>
+                <select name="" id="tipoderadial">
+                        <option value="R">R</option>
+                        <option value="M">M</option>
+                </select>
+                <input type="text" name="" id="distancia" maxlength="3" class="" style="width: 50px;" placeholder="R082">
             </p>
             <br>
             <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Rota<br>
-                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width: 167px;">
+                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width: 167px;" value="DCT">
             </p>
             <p class="pequeno">Tipo<br>
                 <select name="" id="tipo" value="">
@@ -115,8 +126,13 @@
                     <option value="Outro esteira de turbulência">H</option>
                 </select>
             </p>
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo de Chamada<br>
+                <input type="text" name="" id="indicativo" width="80px;" maxlength="10">
+            </p>
+            <p class="pequeno">Coordenadas (ZZZZ apenas)<br>
+                <input type="text" name="" id="coordenadas" style="width:130px;" maxlength="15" placeholder="012345S/0123456W">
+            </p>
             <p id="final" style="color:silver;font-size:0.1em;">.</p>
-
         </form>
     </div>
 
