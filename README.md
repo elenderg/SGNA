@@ -71,9 +71,15 @@ O plano diz que no fixo UTBOL a velocidade e nível da aeronave será alterado e
 
 Contém a velocidade verdadeira de cruzeiro para a primeira parte ou a totalidade do voo em função de:
 a) quilômetros por hora: a letra K, seguida de 4 algarismos;
-Exemplo 1: K 0 6 5 0
-b) nós: a letra N, seguida de 4 algarismos. Ex: N 0  4  8  0; ou
-c) número Mach: a letra M, seguida de 3 algarismos, arredondado aos
-centésimos mais próximos.
+
+Exemplo 1: **K0650**
+
+b) nós: a letra N, seguida de 4 algarismos. 
+
+Ex: **N0480**; ou
+
+c) número Mach: a letra M, seguida de 3 algarismos, arredondado aos centésimos mais próximos.
+
 Exemplo 3: (para o Mach 0.82)
- M 0 8 2 
+
+ **M082**
