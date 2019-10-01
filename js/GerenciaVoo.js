@@ -29,7 +29,7 @@ function AdicionaCidade(Origem,Destino){
          var Coordenadas = document.getElementById('coordenadas').value.toUpperCase();
          console.log("Erro. Aeródromo ZZZZ não possui informações de latitude e longitude. Será feita uma estimativa")
          console.log(distancia + " " + radial + " " + rota);
-         if(Origem == "ZZZZ" || Destino == "ZZZZ" && Coodenadas == ""){
+         if(Origem == "ZZZZ" || Destino == "ZZZZ" && Coordenadas == ""){
             alert("Por favor, insira as coordenadas do ZZZZ")
          }
    }
