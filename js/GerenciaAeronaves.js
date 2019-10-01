@@ -3,7 +3,7 @@ Aeronave = [];
 meuStorage = localStorage;
 var Hora = "";
 
-function CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Distancia, Rota){
+function CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Distancia, Rota, Movimento){
   this.Matricula = Matricula;
   this.Origem = Origem;
   this.Destino = Destino;
@@ -15,37 +15,43 @@ function CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, 
   this.Transponder = Transponder;
   this.Procedimento = Procedimento;
   this.Rota = Rota;
+  this.Movimento = Movimento;
 }
 
 function AdicionarAeronave(){
+    Movimento = document.getElementById('movimento').value.toUpperCase();   
     Matricula = document.getElementById('matricula').value.toUpperCase();
     Origem = document.getElementById('origem').value.toUpperCase();
     Destino = document.getElementById('destino').value.toUpperCase();
-    console.log("Matrícula: " +Matricula +"; Origem: " +Origem +"; Destino: " +Destino);
     Hora = document.getElementById('hora').value.toUpperCase();
     Nivel = document.getElementById('nivel').value.toUpperCase();
     Tipo = document.getElementById('tipo').value.toUpperCase();
     Distancia = document.getElementById('distancia').value.toUpperCase();
-    console.log("Hora: " +Hora +" Nivel: " +Nivel +" Tipo: " +Tipo + " Distância: " + Distancia);
     Esteira = document.getElementById('esteira').value.toUpperCase();
     Transponder = document.getElementById('transponder').value.toUpperCase();
     Procedimento = document.getElementById('procedimento').value;
     Rota = document.getElementById('rota').value.toUpperCase();
-    console.log("Esteira: " +Esteira +"; Transponder: " + Transponder + "; Procedimento: " + Procedimento + "; Rota: " + Rota);
-    if (Matricula && Origem && Destino) {
-    AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota)
+    console.log("Matrícula: " +Matricula +"; Origem: " +Origem +"; Destino: " +Destino);
+    console.log("Hora: " +Hora +"; Nivel: " +Nivel +"; Tipo: " +Tipo + "; Distância: " + Distancia);
+    console.log("Esteira: " +Esteira +"; Transponder: " + Transponder + "; Procedimento: " + Procedimento + "; Rota: " + Rota);    
+    if (Matricula && Origem && Destino && Hora) {
+      if(Origem !== "SBHT" && Destino !== "SBHT" && Movimento != "QAY"){
+        alert("Por favor, altere o valor Movimento para QAY ou QAF")
+      }
+      else {AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota)}
     }
     else {
         console.log("Como os dados da aeronave não foram preeenchidos, o comando foi ignorado")    
+        alert("Por favor, preencha pelo menos os seguintes dados: \n 1.Matrícula \n 2.Origem \n 3.Destino \n 4.Hora ");
     }
     EscondeForm()
     console.log("Obs: O form foi ocultado")
 }
 
 
-function AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota, Distancia){
+function AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota, Distancia, Movimento){
     // Adiciona os valores da aeronave à  variável dados
-    Aeronave[QtAeronave] = new CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota, Distancia);
+    Aeronave[QtAeronave] = new CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota, Distancia, Movimento);
     //console.log(Aeronave[QtAeronave].matricula.length);    
     console.log("Se esta mensagem foi exibida, provavelmente os dados foram adicionados com sucesso")
     console.log(Aeronave[QtAeronave]);
