@@ -12,7 +12,7 @@ Futuramente pretende-se exibir as diferentes posições do circuito de tráfego 
 ## O form
 O processo de inserção de aeronaves no sistema começa pelo form contido na página inicial (index.html)
 
-Imagem do form: http://i.ibb.co/74mhvvG/form.png
+Imagem do form: https://i.ibb.co/FxpRTby/form.png
 
 Para acesso ao form basta clicar no botão + ou digitar qualquer coisa
 
@@ -52,7 +52,7 @@ Obs: analisa-se a possibilidade de inserir mais um campo no formulário, onde co
 A Rota é composta de vários elementos, tais como:
 **DCT** - significa que o usuário irá efetuar uma trajetória em linha reta em relação ao ponto anterior e o posterior. Caso esta seja a única informação, considera-se o ponto anterior como a **Origem** e o posterior como o **Destino**.
 
-**FIXO** - FIXOS são códigos compostos de 5 caracteres aleatórios (Ex: KOGSA, ROTAM, PACAI)
+**FIXO** - FIXOS (waypoints) são códigos compostos de 5 caracteres aleatórios (Ex: KOGSA, ROTAM, PACAI). A relação completa dos FIXOS do espaço aéreo brasileiro está disponível [aqui](https://github.com/elenderg/SGTA/blob/master/cartas/waypoint.csv)
 
 **N0###/F###** - parte de um ponto de mudança de rota. Ex: N0150F160
 Exemplo de plano com essa informação: DCT UTBOL/N0150F160 IFR DCT
