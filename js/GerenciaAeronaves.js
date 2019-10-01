@@ -3,7 +3,7 @@ Aeronave = [];
 meuStorage = localStorage;
 var Hora = "";
 
-function CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Distancia, Rota, Movimento){
+function CriarAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Distancia, Rota, Movimento, Coordenadas){
   this.Matricula = Matricula;
   this.Origem = Origem;
   this.Destino = Destino;
@@ -39,7 +39,7 @@ function AdicionarAeronave(){
       if(Origem !== "SBHT" && Destino !== "SBHT" && Movimento != "QAY"){
         alert("Por favor, altere o valor Movimento para QAY ou QAF")
       }
-      else {AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota)}
+      else {AdicionaAeronave(Matricula, Origem, Destino, Hora,  Nivel, Tipo, Esteira, Transponder, Procedimento, Rota, Movimento, Coordenadas)}
     }
     else {
         console.log("Como os dados da aeronave não foram preeenchidos, o comando foi ignorado")    
