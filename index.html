@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SGTA</title>
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/GerenciaVoo.js"></script>
     <script src="js/script.js"></script>
@@ -15,17 +17,10 @@
     <script src="mapas/worldLow.js"></script>
     <script src="mapas/animated.js"></script>
 </head>
+
 <body id="body">
-    <h1 class="commargem" style="background-color:black;text-align:center;text-transform:uppercase;font-weight:700;">
-        SGTA - Sistema de Gerenciamento de Tráfego Aéreo</h1>
-    <p class="commargem" style="background-color:black;text-align:center;text-transform:uppercase;font-weight:700;">
-        Para adicionar ou remover aeronaves, clique nos botões
-        <span>+</span> e <span>-</span> abaixo, ou digite uma letra. Use <img
-            src="icones/1024px-Google_Chrome_icon_(September_2014).svg.png" alt="" style="width: 15px;height: 15px;">
-    </p>
-    <button type="button" class="button commargem" onclick="MostraForm()">+</button>
-    <button type="button" class="button commargem" onclick="RemoverAeronave()">—</button>
-    <div id="mydiv" style="z-index: 2;">
+  <div id="mydiv" style="z-index: 2;">
+        
 
         <form id="form" class="commargem">
 
@@ -33,14 +28,16 @@
                 <p class="alignleft">Inclusão Avulsa</p>
                 <button type="button" class="alignright" onclick="EscondeForm()">×</button>
             </div>
-            <p class="pequeno" style="margin-left: 5px;">Posição Operacional <br>
+            <p class="pequeno" style="margin-left: 5px;">Posição Operacional
+                <br>
                 <select name="" id="traves" value="">
                     <option value="CLR">CLR</option>
                     <option value="TWR">TWR</option>
                     <option value="TMA">TMA</option>
                 </select>
             </p>
-            <p class="pequeno">Movimento<br>
+            <p class="pequeno">Movimento
+                <br>
                 <select name="" id="movimento" value="">
                     <option value="ARR">ARR</option>
                     <option value="DEP">DEP</option>
@@ -48,103 +45,158 @@
                     <option value="QAF">QAF</option>
                 </select>
             </p>
-            <p class="pequeno" style="margin-left:10px;">VFR/IFR<br>
+            <p class="pequeno" style="margin-left:10px;">VFR/IFR
+                <br>
                 <select name="" id="procedimento" value="">
                     <option value="VFR">VFR</option>
                     <option value="IFR">IFR</option>
                 </select>
             </p>
             <p class="pequeno" style=" float:right; margin-right:5px; margin-bottom:3px;">
-                <button class="semborda" type="button" style="background-color: silver;" id="botaogravar"
-                    onclick="AdicionarAeronave()">
+                <button class="semborda" type="button" style="background-color: silver;" id="botaogravar" onclick="AdicionarAeronave()">
                     <b style="color:green;">✔ </b>&nbsp;<u>G</u>ravar&nbsp;&nbsp;&nbsp;</button>
                 <br>
-                <button class="semborda" type="button" style="background-color: silver;" id="botaocancelar"
-                    onclick="EscondeForm()">
+                <button class="semborda" type="button" style="background-color: silver;" id="botaocancelar" onclick="EscondeForm()">
                     <b style="color:blue;">↶ </b>&nbsp;<u>C</u>ancelar</button>
             </p>
             <br>
-            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo <br>
-                <input type="text" name="" id="matricula" maxlength="7" class="" style="width: 50px;"
-                    placeholder="PTNAV">
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo
+                <br>
+                <input type="text" name="" id="matricula" maxlength="7" class="" style="width: 60px;" placeholder="PTNAV">
             </p>
 
-            <p class="pequeno">Hora <br>
-                <input type="text" name="" id="hora" maxlength="4" class="" style="width: 50px;" placeholder="1234">
+            <p class="pequeno">Hora
+                <br>
+                <input type="text" name="" id="hora" maxlength="4" class="" style="width: 40px;" placeholder="1234">
             </p>
-            <p class="pequeno">Nível<br>
+            <p class="pequeno">Nível
+                <br>
                 <select name="" id="tipodenivel">
                     <option value="F">F</option>
                     <option value="A">A</option>
                     <option value="VFR"></option>
                 </select>
-                <input type="text" name="" id="nivel" maxlength="3" class="" style="width: 30px;" placeholder="VFR">
+                <input type="text" name="" id="nivel" maxlength="3" class="" style="width: 35px;" placeholder="VFR">
             </p>
-            <p class="pequeno">Velocidade<br>
+            <p class="pequeno">Velocidade
+                <br>
                 <select name="" id="tipodevelocidade">
                     <option value="F">N</option>
                     <option value="A">K</option>
                     <option value="M">M</option>
                 </select>
-                <input type="text" name="" id="velocidade" maxlength="4" class="" style="width: 30px;" placeholder="0160">
-            </p>     
-            <br>            
-            <p class="pequeno" style="margin-left: 5px;">Origem<br>
-                <input type="text" name="origem" id="origem" maxlength="4" class="" style="width: 50px;"
-                    placeholder="SBHT">
+                <input type="text" name="" id="velocidade" maxlength="4" class="" style="width: 35px;" placeholder="0160">
             </p>
-            <p class="pequeno">Destino<br>
+            <br>
+            <p class="pequeno" style="margin-left: 5px;">Origem
+                <br>
+                <input type="text" name="origem" id="origem" maxlength="4" class="" style="width: 50px;" placeholder="SBHT">
+            </p>
+            <p class="pequeno">Destino
+                <br>
                 <input type="text" name="" id="destino" maxlength="4" class="" style="width: 50px;" placeholder="SBHT">
             </p>
-            <p class="pequeno">Distância<br>
+            <p class="pequeno">Distância
+                <br>
                 <input type="text" name="" id="distancia" maxlength="3" class="" style="width: 30px;" placeholder="75">
                 <select name="" id="tipodedistancia">
-                        <option value="NM">NM</option>
-                        <option value="KM">KM</option>
+                    <option value="NM">NM</option>
+                    <option value="KM">KM</option>
                 </select>
             </p>
-            <p class="pequeno">Radial/Magnética<br>
+            <p class="pequeno">Radial/Magnética
+                <br>
                 <select name="" id="tipoderadial">
-                        <option value="R">R</option>
-                        <option value="M">M</option>
+                    <option value="R">R</option>
+                    <option value="M">M</option>
                 </select>
                 <input type="text" name="" id="distancia" maxlength="3" class="" style="width: 50px;" placeholder="R082">
             </p>
             <br>
-            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Rota<br>
-                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width:180px;" value="DCT">
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Rota
+                <br>
+                <input type="text" name="" id="rota" placeholder="DCT" maxlength="20" style="width:174px;" value="DCT">
             </p>
-            <p class="pequeno">Tipo<br>
+            <p class="pequeno">Tipo
+                <br>
                 <select name="" id="tipo" value="">
                     <option value="Avião">Avião</option>
                     <option value="Helicóptero">Helicóptero</option>
                 </select>
             </p>
-            <p class="pequeno">Cat<br>
+            <p class="pequeno">Cat
+                <br>
                 <select name="" id="esteira" value="">
                     <option value="Leve">L</option>
                     <option value="Média">M</option>
                     <option value="Outro esteira de turbulência">H</option>
                 </select>
             </p>
-            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo de Chamada<br>
+            <p class="pequeno" style="margin-bottom:2px;margin-top:2px;margin-left: 5px;">Indicativo de Chamada
+                <br>
                 <input type="text" name="" id="indicativo" style="width:110px;" maxlength="10" placeholder="GUARDIÃO02">
             </p>
-            <p class="pequeno">Coordenadas (ZZZZ apenas)<br>
+            <p class="pequeno">Coordenadas (ZZZZ apenas)
+                <br>
                 <input type="text" name="" id="coordenadas" style="width:140px;" maxlength="15" placeholder="012345S/0123456W">
             </p>
-            <p class="pequeno">Transponder<br>
-                <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;"  placeholder="2000">
+            <p class="pequeno">Transponder
+                <br>
+                <input type="text" name="" id="transponder" maxlength="4" class="" style="width: 50px;" placeholder="2000">
             </p>
             <p id="final" style="color:silver;font-size:0.1em;">.</p>
         </form>
     </div>
 
-    <div class="painellateral" id="paineldestrips" style="z-index: -1;">
+    <nav id="menu" class="invisivel">
+        <ul class="menu">
+            <li class="dropdown"><a href="#news">☰ Strips</a>
+                <div class="dropdown-content">
+                    <a href="#">Enviar Strip para:</a><hr>
+                    <a href="#">Criar nova Strip</a>
+                    <a href="#">Procurar Strip</a><hr>
+                    <a href="#">Excluir Strip</a><hr>
+                    <a href="#">Comentários</a>
+                    <a href="#">POB, AUtonomia e Alternativa:</a>
+                    <a href="#">Toque e Arremetida</a>
+                    <a href="#">Arremeter</a>
+                    <a href="#">Aguardar</a><hr>
+                    <a href="#">Editar Strip</a>
+                    <a href="#">Observações</a><hr>
+                    <a href="#">Próxima perna:</a>
+                    <a href="#">Posição anterior:</a><hr>
+                    <a href="#">Apagar tudo</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="" class="dropbtn">⚙ Opções</a>
+                <div class="dropdown-content">
+                    <a href="#">RPL</a>
+                    <a href="#">SR/SS</a>
+                    <a href="#">IEPV 100-34</a>
+                    <hr>
+                    <a href="#">Restaurar Strip</a>
+                </div>
+            </li>
+        </ul>
+
+    </nav><button type="button" class="button commargem" onclick="MostraForm()">+</button>
+    <button type="button" class="button commargem" onclick="RemoverAeronave()">—</button>
+    <div class="painellateral" id="mapa" style="z-index: -1;">
         <div id="chartdiv"></div>
     </div>
-    <script src="js/moveform.js"></script>
-    <script src="mapas/script.js"></script>
+
+<div><span style="color:black; font-weight:700;"><br>Painel de Strips<br></span>
+    <span id="lista" style="color:silver; font-weight:700;">.</span>
+    <div id="paineldestrips">
+         
+    </div>
+</div>
+    
+    
 </body>
+
+<script src="js/moveform.js"></script>
+<script src="mapas/script.js"></script>
 
 </html>
