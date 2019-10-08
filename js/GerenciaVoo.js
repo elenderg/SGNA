@@ -110,7 +110,7 @@ function AdicionaCidade(Origem,Destino){
 function FunçãoBusca(codigo){
    if (i == 1) {
    
-      resultado2 = json.filter(function(obj){return obj['CODIGO'] == codigo;});
+      resultado2 = json.filter(function(busca){return busca['CODIGO'] == codigo;});
       
       if(resultado2.length){ // Se achar o aeródromo
          //console.log(resultado2);
@@ -121,10 +121,10 @@ function FunçãoBusca(codigo){
          // pega as coordenadas do aeródromo
          codaerodromo2 = resultado2[0]['CODIGO'];
          // o nome do aerodromo é armazenado numa posição do vetor aerodromo
-         //console.log(codaerodromo2);      
+         console.log(codaerodromo2);      
          addCity(coordenadas2, codaerodromo2);
          ad2 = addCity(coordenadas2, codaerodromo2);
-         //console.log(ad2);
+                  //console.log(ad2);
          // adiciona o aeródromo no mapa
          //console.log(addCity(coordenadas2, codaerodromo2));
          if (i == 1) {
@@ -136,10 +136,12 @@ function FunçãoBusca(codigo){
             //addLine(addCity({latitude: resultado[0]['latitude'], longitude: resultado[0]['longitude']}, codaerodromo1),addCity(coordenadas2, codaerodromo2));
             //console.log(addLine(ad1,ad2));
             i = 0;  // zera o contador
+            console.log(i);
             Horatexto = Hora;   // passa a hora para a variável Horatexto
             console.log(Horatexto);
            
-            Velocidade();
+            Velocidade();    
+            CriaStrip();
          }
          
       }   
@@ -147,7 +149,7 @@ function FunçãoBusca(codigo){
 
    if (i == 0) {
    
-   resultado = json.filter(function(obj){return obj['CODIGO'] == codigo;});
+   resultado = json.filter(function(busca){return busca['CODIGO'] == codigo;});
    
    if(resultado.length){ // Se achar o aeródromo
       //console.log(resultado);          
@@ -156,6 +158,7 @@ function FunçãoBusca(codigo){
       coordenadas1 = {latitude: resultado[0]['latitude'], longitude: resultado[0]['longitude']};      
       // pega as coordenadas do aeródromo
       codaerodromo1 = resultado[0]['CODIGO'];
+      console.log(codaerodromo1);
       // o nome do aerodromo é armazenado numa posição do vetor aerodromo
       addCity(coordenadas1, codaerodromo1);
       //console.log(coordenadas1);
@@ -183,56 +186,40 @@ function Velocidade(){
    //console.log(typeof Minutos);     
    
    var DiaAtual = new Date();   
-   console.log(DiaAtual);   
+   //console.log(DiaAtual);   
    var DiaUTC =  DiaAtual.getUTCDate() * 86400000;   
-   console.log(DiaUTC);   
+   //console.log(DiaUTC);   
    var Dia = DiaUTC;   
    var HoraUTC = DiaAtual.getUTCHours() * 3600000;   
-   console.log(HoraUTC);   
+   //console.log(HoraUTC);   
    var MinutosUTC = DiaAtual.getUTCMinutes() * 60000;   
-   console.log(MinutosUTC);  
+   //console.log(MinutosUTC);  
    
    if (Hora < HoraUTC) {   
        Hora = Hora + 86400000;   
    }
       
    var msAtual = DiaUTC + HoraUTC + MinutosUTC;   
-   console.log(msAtual);   
+   //console.log(msAtual);   
    var msInformado = Dia + Hora + Minutos;   
-   console.log(msInformado);   
+   //console.log(msInformado);   
    diferença = msInformado - msAtual;   
    console.log(diferença);  
+ 
 }
-
+function CriaStrip() { 
+   var  StripNova = document.createElement("ul"); 
+   console.log("criado ul")
+   var DadosDoVoo = document.createElement("li"); 
+   console.log("criado li")
+   DadosDoVoo.style.width = "100%";
+   var PainelDeStrips = document.getElementById("paineldestrips");
+   console.log("pegado o painel")
+   DadosDoVoo.innerHTML = Matricula + "&emsp;"  + Nivel + "&emsp;" + Rota + "<br>" + Origem + "&emsp;" + Destino + "<br>" + Hora;
+   console.log(DadosDoVoo.innerHTML);
+   PainelDeStrips.appendChild(StripNova);
+   console.log("adicionado strip nova")
+   StripNova.appendChild(DadosDoVoo); 
+   console.log("adicionado dados na strip nova")
+} 
     
-/*am4core.ready(function() {
-    addCity(coordenadas, aerodromo);
-    }); 
-    function MultiBusca(Origem,Destino){
-      var adorigem = json.filter(function(parametro){
-         return parametro['CODIGO'] == Origem;         
-      });
-      var addestino = json.filter(function(parametro){
-         return parametro['CODIGO'] == Destino;
-      });
-
-      if(adorigem.length && addestino.lenght){
-          latitude = resultado[0].latitude;
-          longitude = resultado[0].longitude;
-          aerodromo = resultado[0].CODIGO;
-          coordenadas = ("{latitude: " + latitude + ", longitude: " + longitude + "}")
-          console.log(coordenadas);
-          console.log(aerodromo); 
-          addCity(coordenadas, aerodromo);
-          console.log(addCity(coordenadas, aerodromo));
-          if (i = 0) {
-           ad[i] = aerodromo;
-  i = i + 1;   
-          }
-          else {
-           ad[i] = aerodromo;
-           //addLine(ad[0],ad[1]);
-          }
-       }
-       else{console.log("Aeródromo Inexistente: " + codigo); }
-}*/
