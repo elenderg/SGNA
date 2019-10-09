@@ -108,7 +108,9 @@ function AdicionaCidade(Origem,Destino){
 } // fim da função AdicionaCidade()
    
 function FunçãoBusca(codigo){
+   console.log("Função busca iniciada");
    if (i == 1) {
+      console.log(Destino);
    
       resultado2 = json.filter(function(busca){return busca['CODIGO'] == codigo;});
       
@@ -135,7 +137,7 @@ function FunçãoBusca(codigo){
             //addLine(addCity(coordenadas1, codaerodromo1),addCity(coordenadas2, codaerodromo2));
             //addLine(addCity({latitude: resultado[0]['latitude'], longitude: resultado[0]['longitude']}, codaerodromo1),addCity(coordenadas2, codaerodromo2));
             //console.log(addLine(ad1,ad2));
-            i = 0;  // zera o contador
+            
             console.log(i);
             Horatexto = Hora;   // passa a hora para a variável Horatexto
             console.log(Horatexto);
@@ -147,7 +149,8 @@ function FunçãoBusca(codigo){
       }   
       else{console.log("Aeródromo Inexistente: " + codigo); } }
 
-   if (i == 0) {
+  else if (i == 0) {
+      console.log(Origem);
    
    resultado = json.filter(function(busca){return busca['CODIGO'] == codigo;});
    
@@ -178,6 +181,7 @@ function FunçãoBusca(codigo){
 
 
 function Velocidade(){
+   i = 0;
    var Hora = parseInt(Horatexto.substr(0,2)) * 3600000;   
    console.log(Hora);   
    //console.log(typeof Hora);   
@@ -207,12 +211,15 @@ function Velocidade(){
    console.log(diferença);  
  
 }
-function CriaStrip() { 
+function CriaStrip() {
+   console.log("função CriaStrip chamada a partir da linha 146") 
    var  StripNova = document.createElement("ul"); 
    console.log("criado ul")
    var DadosDoVoo = document.createElement("li"); 
    console.log("criado li")
    DadosDoVoo.style.width = "100%";
+   DadosDoVoo.style.border = "1 px solid black";
+   DadosDoVoo.style.paddingLeft = "3px";
    var PainelDeStrips = document.getElementById("paineldestrips");
    console.log("pegado o painel")
    DadosDoVoo.innerHTML = Matricula + "&emsp;"  + Nivel + "&emsp;" + Rota + "<br>" + Origem + "&emsp;" + Destino + "<br>" + Hora;
