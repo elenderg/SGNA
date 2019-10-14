@@ -1,5 +1,6 @@
-var json, velocidade,diferença;
-var Horatexto,resultado, resultado2, coordenadas1, coordenadas2, ad1, ad2, codaerodromo1, codaerodromo2;
+var json, velocidade,diferença, Horatexto,resultado, resultado2, coordenadas1, coordenadas2, ad1, ad2, codaerodromo1, codaerodromo2;
+var contagem = 0;
+var selecionada = false;
 /*var Hoje = new Date;
 var HoraAtual = new Date.UTC();
 var UTC = Hoje.getUTCHours();*/
@@ -211,22 +212,111 @@ function Velocidade(){
    console.log(diferença);  
  
 }
-function CriaStrip() {
-   console.log("função CriaStrip chamada a partir da linha 146") 
-   var  StripNova = document.createElement("ul"); 
-   console.log("criado ul")
-   var DadosDoVoo = document.createElement("li"); 
-   console.log("criado li")
-   DadosDoVoo.style.width = "100%";
-   DadosDoVoo.style.border = "1 px solid black";
-   DadosDoVoo.style.paddingLeft = "3px";
-   var PainelDeStrips = document.getElementById("paineldestrips");
-   console.log("pegado o painel")
-   DadosDoVoo.innerHTML = Matricula + "&emsp;"  + Nivel + "&emsp;" + Rota + "<br>" + Origem + "&emsp;" + Destino + "<br>" + Hora;
-   console.log(DadosDoVoo.innerHTML);
-   PainelDeStrips.appendChild(StripNova);
-   console.log("adicionado strip nova")
-   StripNova.appendChild(DadosDoVoo); 
-   console.log("adicionado dados na strip nova")
+
+function CriaStrip() {   
+   while (contagem < QtAeronave) {
+   var lista= document.getElementById("lista");   
+   var palavra = "strip";                       // o objetivo dessas  linhas 
+   var dados = "dados"                          // é criar id's dinamicamente para os elementos
+   var stringdiv = "div";
+   var stripid = palavra + contagem.toString(); // e para os conteúdos delas
+   var dadosid = dados + contagem.toString();   //
+   var divid = stringdiv +  contagem.toString();      //
+
+   var Li = document.createElement("li"); // cria um item de lista para ser inserido na ul (lista não ordenada)
+   Li.setAttribute("class", "cinza li");   // atribui as classe ao li criado
+   
+   
+   var  Input = document.createElement("input"); // cria um elemento do tipo input  
+   //console.log(Input);
+   Input.setAttribute('name', 'painel')
+   //console.log(Input);
+   Input.setAttribute('type', 'radio'); // transforma o input no tipo radio button
+   // console.log(Input);
+   //console.log(stripid);
+   Input.setAttribute("id", stripid);  // o input recebe a id strip1, strip2, strip3, e assim vai
+   //console.log(Input);
+   Input.setAttribute("class", "radiobutton"); 
+   
+   
+   var Label = document.createElement("label");   // cria uma label que será adicionada ao li
+   //console.log(Label);
+   Label.htmlFor = stripid; // atribui o valor da variável stripid ao for do label 
+   //console.log(Label);
+
+    // <input type="radio" id="strip1"> <label for="strip1"></label>
+
+   var DadosDaStrip = document.createElement("div");  // cria uma div com dados fundamentais
+   DadosDaStrip.setAttribute("class", "lado-a-lado");    // atribui a classe stripdiv à div criada
+   DadosDaStrip.setAttribute("id", divid);         // atribui uma id dinamicamente à div criada
+
+   var DadosDoVoo = document.createElement("div");    // criamos  a div vai ficar dentro do li
+                                                      // a qual tem dados adicionais do voo
+   DadosDoVoo.setAttribute("class", "dados");         //atribui a classe dados à div criada
+   DadosDoVoo.setAttribute("id", dadosid);            // atribui uma id dinamicamente à div criada
+   
+   Li.onkeydown = EditaStrip;
+   Li.onclick = SelecionaStrip;
+   Input.onkeydown = EditaStrip;
+   Input.onclick = SelecionaStrip;
+   Label.onkeydown = EditaStrip;
+   Label.onclick = SelecionaStrip;
+   DadosDaStrip.onkeydown = EditaStrip;
+   DadosDaStrip.onclick = SelecionaStrip;
+   DadosDoVoo.onkeydown = EditaStrip;
+   DadosDoVoo.onclick = SelecionaStrip;
+   
+   DadosDaStrip.innerHTML = "<strong>" + Matricula + "</strong>" + "<br>"  + Origem + "&emsp;" + "<strong>" + Destino + "</strong>" + "<br>" + "<strong>" + Hora + "</strong>" +  "&emsp;" + Tipo + Esteira;   
+   DadosDoVoo.innerHTML = Transponder + "&emsp;" + tipodenivel+ Nivel + "&nbsp;&nbsp;" + Rota  + "<br>"+ "<br>" +"&nbsp;&nbsp;" + tipodevelocidade +  velocidade ;
+
+   lista.appendChild(Li);
+   Li.appendChild(Input);
+   Li.appendChild(Label); // From Input to Li
+   Label.appendChild(DadosDaStrip);
+   DadosDaStrip.appendChild(DadosDoVoo);
+
+
+   contagem = contagem + 1;
+   }
+
 } 
+function LimpaStrips(){
+   selecionada = false;
+   console.log("A função LimpaStrips() foi invocada com sucesso");
+   var radiobutton = document.getElementsByClassName("radiobutton");
+   for(i=0; i < radiobutton.length; i++) {
+      radiobutton[i].checked = false;         
+    }
+  
+}
+function SelecionaStrip(){
+  console.log("A função SelecionaStrip() foi invocada com sucesso");
+  selecionada = true;
+}
+
+
+
+function EditaStrip(){  
+   if (selecionada == true){
+   console.log("A função EditaStrip() foi invocada com sucesso");
+   // caso a strip Esteja selecionada
+   if ( event.keyCode == 32 ) {
+   // se o usuário apertar a barra de espaços
+   //var PainelDeEdicao = document.getElementById(Editor);
+   //PainelDeEdicao.style.display = "block";
+     console.log("A barra de espaços foi pressionada");       
+   } 
+    /*
+   for (i = 0; i <= contagem; i++) {
+   var palavra = "strip";
+   var stripid[] = palavra + i.toString();
+   var strip[i] = document.getElementById(stripid);
+   stripid[i].onkeydown = function() {
+    selecionada = true;
+    stripid[i].focus()
+  };
+   }*/
+}
+
+}
     
